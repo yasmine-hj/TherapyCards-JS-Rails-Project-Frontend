@@ -7,3 +7,4 @@ class TopicsAdapter {
         return fetch(this.baseURL)
         .then(res => res.json())
     }
+}

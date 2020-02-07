@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TherapyCards</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <body>
-    
+  
+  <div class="container">
+      <div class="header">
+        <div class="logo-container">
+          <img class="logo-img" src={herbal} alt="logo" />
+          <p class="logo-title">
+            therapy<span style={{ font-weight: "bold" }}>cards</span>
+          </p>
+        </div>
+        <nav>
+          <a href="">
+            log<span style={{ font-weight: "bold" }}>in</span>
+          </a>
+          <a href="">
+            sign<span style={{ font-weight: "bold" }}>up</span>
+          </a>
+        </nav>
+      </div>
+      <div class="main-section">
+        <div class="card-container">
+          <!-- <div class="therapyCard">
+            <div class="card-title-container">
+                <div class="therapy-topic-name"></div>
+              <!-- <h3 class="therapy-category">Relationships</h3> -->
+              <!-- <h3 class="card-style">-</h3>
+            </div>
+            <p class="therapy-content"> -->
+              <!-- How might you evolve in the way you express disappointment with a
+              partner? -->
+            <!-- </p>
+          </div> --> -->
+        </div>
+        <div class="answer-container">
+          <div class="answerCard">
+            <div class="answer-title-container">
+              <h3 class="answer-title">Write your answer below</h3>
+              <h3 class="answer-style">-</h3>
+            </div>
+            <form id="new-response-form">
+            <h2>Your thoughts:</h2>
+            <input type="text" name="user-response" id="user-response"><br>
+            <input type="submit" value="submit response">
+          </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="./src/components/topic.js"></script>
+<script src="./src/components/topics.js"></script>
+<script src="./src/components/app.js"></script>
+<script src="./src/adapters/topicsAdapter.js"></script>
+
+<script src="./src/index.js"></script>
+
 </body>
+
 </html>
