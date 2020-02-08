@@ -38,9 +38,21 @@ class Topics {
 
     //Question Card
 
+    renderQuestionCard(){
+       return 
+        `<div class="therapyCard">
+            <div class="card-title-container">
+            <div class="therapy-topic-name"></div>
+                <h3 class="therapy-category">${this.name}</h3> 
+                <h3 class="card-style">-</h3>
+            </div>
+                <p class="therapy-content">${this.question}</p>
+        </div>`
+    }
+
     //Answer Card
-    
-    functionRenderAnswerCard(){
+
+    renderAnswerCard(){
         return 
         `<div class="answer-container">
             <div class="answerCard">
