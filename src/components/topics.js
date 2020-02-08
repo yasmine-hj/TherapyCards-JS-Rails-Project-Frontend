@@ -23,6 +23,8 @@ class Topics {
         this.topicNameField = document.querySelector( '.therapy-topic-name' )
         this.responseCardFormBox = document.querySelector( '.new-response-form' )
         this.responseCardsBox = document.querySelector( '.answerCard' )
+        this.cardsBox = document.querySelector( '.bottom' )
+
     }
 
     initListeners() {
@@ -38,7 +40,11 @@ class Topics {
 
     //Question Card
 
-    renderQuestionCard(){
+    renderQuestionCard(e){
+       const topicId = e.target.dataset.id 
+       this.cardFormBox.innerHTML = this.renderCardForm(topicId)
+       const cards = this.topics.map(topic =>  topic.cards.map(card => {
+        if (topicId == card.topic_id)
        return 
         `<div class="therapyCard">
             <div class="card-title-container">
@@ -48,11 +54,17 @@ class Topics {
             </div>
                 <p class="therapy-content">${this.question}</p>
         </div>`
-    }
+        }
+        ))
+        this.cardsBox.innerHTML = cards.join('')
+        const card = document.querySelector( '.bottom' )
+        card.addEventListener('click', this.handleDelete.bind(this))
+
+
 
     //Answer Card
 
-    renderAnswerCard(){
+    renderAnswerCard(topicId){
         return 
         `<div class="answer-container">
             <div class="answerCard">
@@ -60,7 +72,7 @@ class Topics {
                     <h3 class="answer-title">Write your answer below</h3>
                     <h3 class="answer-style">-</h3>
                 </div>
-                <form id="new-response-form">
+                <form data-topicId="${topicId}" id="card-form">
                     <h2>Your thoughts:</h2>
                     <input type="text" name="user-response" id="user-response"><br>
                     <input type="submit" value="submit response">
