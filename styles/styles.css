@@ -5,7 +5,6 @@
   }
   
   .App {
-    text-align: center;
     font-family: 'Comfortaa', cursive;
   }
   
@@ -37,6 +36,7 @@
   .logo-title {
     font-size: 175%;
     font-family: 'Comfortaa', cursive;
+    font-weight: 300;
     color: black;
   }
   
@@ -48,6 +48,7 @@
   nav a {
     text-decoration: none;
     font-family: 'Comfortaa', cursive;
+    font-weight: 300;
     color: black;
     font-size: 125%;
     padding: 10%;
@@ -96,6 +97,8 @@
   }
   
   .answer-container {
+    font-family: 'Comfortaa', cursive;
+    font-size: 100%;
     margin: 5% 5% 5% 5%;
     margin-left: 45%;
     border: 1px solid black;
@@ -176,7 +179,7 @@
     border: 0;
     color: black;
     font-family: 'Comfortaa', cursive;
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 100%;
     border-radius: 5px;
     padding: 2% 5% 2% 5%;
@@ -186,7 +189,7 @@
   textarea[type=text] {
     color: black;
     font-family: 'Comfortaa', cursive;
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 100%;
     padding-left:0;
   padding-top:0;

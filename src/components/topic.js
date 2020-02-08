@@ -5,16 +5,12 @@ class Topic {
       
     }
 
-    renderTopicHeader(){
-        return `<h1>Topic Header!</h1>`
-    }
     renderTopicName() {
-        return `<li class="topic-cards" data-id=${this.id}>${this.name}</li>`
+        return `<div class="topic-cards" data-id=${this.id}>${this.name}</div>`
     }
 
     renderTopic(){
         returns `
-            ${this.renderTopicHeader()}
             ${this.renderTopicName()}
         `
     }
