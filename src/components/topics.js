@@ -5,6 +5,9 @@ class Topics {
         this.fetchAndLoadTopics()
         this.domElements()
         this.initListeners()
+        this.renderTopics()
+        this.renderQuestionCard(e)
+        this.renderAnswerCard(topicId)
     }
 
     fetchAndLoadTopics() {
@@ -59,7 +62,7 @@ class Topics {
         this.cardsBox.innerHTML = cards.join('')
         const card = document.querySelector( '.bottom' )
         card.addEventListener('click', this.handleDelete.bind(this))
-
+    }
 
 
     //Answer Card
