@@ -6,8 +6,8 @@ class Topics {
         this.domElements()
         this.initListeners()
         this.renderTopics()
-        this.renderQuestionCard(e)
-        this.renderAnswerCard(topicId)
+        this.renderQuestionCards()
+        this.renderAnswerCards(topicId)
     }
 
     fetchAndLoadTopics() {
@@ -22,17 +22,16 @@ class Topics {
     }
 
     domElements() {
-        this.topicsBox = document.querySelector( '.card-container' )
-        this.topicNameField = document.querySelector( '.therapy-topic-name' )
-        this.responseCardFormBox = document.querySelector( '.new-response-form' )
-        this.responseCardsBox = document.querySelector( '.answerCard' )
-        this.cardsBox = document.querySelector( '.bottom' )
+        this.topicsBox = document.querySelector(".card-container");
+        this.topicNameField = document.querySelector('.therapy-topic-name');
+        this.responseCardFormBox = document.querySelector('.new-response-form');
+        this.responseCardsBox = document.querySelector('.answerCard');
+        this.cardsBox = document.querySelector('.bottom');
 
     }
 
     initListeners() {
-        this.topicsBox.addEventListener('click', this.renderCards.bind(this))
-        this.topicForm.addEventListener('submit', this.createTopic.bind(this))
+        this.topicsBox.addEventListener('click', this.renderQuestionCards.bind(this))
     }
 
     //Topics
@@ -43,7 +42,7 @@ class Topics {
 
     //Question Card
 
-    renderQuestionCard(e){
+    renderQuestionCards(e){
        const topicId = e.target.dataset.id 
        this.cardFormBox.innerHTML = this.renderCardForm(topicId)
        const cards = this.topics.map(topic =>  topic.cards.map(card => {
