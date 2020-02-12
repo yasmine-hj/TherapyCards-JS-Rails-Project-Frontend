@@ -51,7 +51,7 @@
     font-weight: 300;
     color: black;
     font-size: 125%;
-    padding: 10%;
+    padding: 5%;
   }
   
   .main-section {
@@ -99,18 +99,14 @@
     padding-right:15px; 
   }
   .answer-cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    font-family: 'Comfortaa', cursive;
     margin: 5% 5% 5% 5%;
-    margin-left: 15%;
+    margin-left: 45%;
     border: 1px solid black;
     border-radius: 35px;
     height: 225px;
     width: 400px;
     background-color: white;
-    padding-left:15px; 
-    padding-right:15px; 
   }
   
   /* .card-title-container {
@@ -123,16 +119,51 @@
     font-family: 'Comfortaa', cursive;
     font-weight: lighter;
     margin: 8% 0% 0% 8%;
-    font-size: 150%;
+    font-size: 100%;
+  }
 
+  .therapy-topic-category {
+    display: flex;
+    color: rgb(205 0 0);
+    font-family: 'Comfortaa', cursive;
+    font-weight: lighter;
+    margin: 8% 0% 0% 8%;
+    font-size: 150%;
   }
   
-  button {
+  button.topics-button {
     border: none;
     background-color: transparent;
     outline: none;
     padding-right:15px;
 }
+
+  button.see-topics-button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding-right:15px;
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+    color: black;
+    font-size: 125%;
+    padding: 10%;
+}
+
+button.see-responses-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding-right:15px;
+  text-decoration: none;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 300;
+  color: black;
+  font-size: 125%;
+  padding: 10%;
+}
+
   button:focus {
     border: none;
 }
@@ -148,7 +179,7 @@
     margin: 0% 8% 0% 8%;
     display: flex;
     align-items: flex-start;
-    font-size: 150%;
+    font-size: 100%;
     font-weight: lighter;
   }
   
@@ -239,18 +270,26 @@
     font-size: 100%;
     border-radius: 5px;
     padding: 2% 5% 2% 5%;
-    margin-top: 5%;
+    margin-left: 10%;
+
+    margin-top: 1%;
   }
   
-  textarea[type=text] {
+  textarea {
     color: black;
+    border: 0;
     font-family: 'Comfortaa', cursive;
     font-weight: 300;
     font-size: 100%;
-    padding-left:0;
-  padding-top:0;
-  padding-bottom: 40px;
-  padding-right: 40px;
-  word-wrap: normal;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    word-wrap: normal;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: 8%;
+    margin-right: auto;
+    width: 85%;
+  
   }
   

@@ -33,17 +33,16 @@ class Topics {
         this.responseCardFormBox = document.querySelector('.new-response-form');
         this.responseCardsBox = document.querySelector('.answerCard');
         this.cardsBox = document.querySelector('.bottom');
-    }
-    // Event listeners
-    // initListeners() {
-    //     this.topicsBox.addEventListener('click', this.renderQuestionCards.bind(this))
-    // }
-    initListeners(){
-        console.log(this)
-        this.topicsBox.addEventListener('click', this.selectCard.bind(this))
+        this.viewAllTopics = document.querySelector(".see-topics-button")
+        console.log(this.viewAllTopics)
     }
 
-   
+    initListeners(){
+        this.topicsBox.addEventListener('click', this.selectCard.bind(this))
+        this.viewAllTopics.addEventListener('click', this.selectViewTopics.bind(this))
+    }
+
+
 
     //Question Card
     selectCard(e){
@@ -57,6 +56,7 @@ class Topics {
         <div class="card-container">
             <div class="question-cards">
               <div class="card-title-container">
+                <br>
                 <h3 class="therapy-category">Relationships</h3>
                 <h3 class="card-style">-</h3>
               </div>
@@ -69,30 +69,20 @@ class Topics {
               <div class="answer-title-container">
                 <h3 class="answer-title">Write your answer below</h3>
                 <h3 class="answer-style">-</h3>
-              </div>
-              <Answers addNewThought={addNewThought} />
-              <Thoughts thought={thought} />
+                <form id="quiz-form" autocomplete="off">
+                <div id="quiz-warning">
+                </div>
+                <div class="input-field">
+                    <textarea type="answer" class="textarea" name="response" id="response" placeholder="Your thoughts" required autofocus></textarea>
+                </div>
+                <button id="submit" class="submit-button">submit</button>
+            </form>
             </div>
           </div>
           </div>`
         }
-        // const topicID = e.target.dataset.id
-        // const cards = this.topics.map(topic =>  topic.cards.map(card => {
-        //         if (topicId == card.topic_id)
-        //        return 
-        //         `<div class="therapyCard">
-        //             <div class="card-title-container">
-        //             <div class="therapy-topic-name"></div>
-        //                 <h3 class="therapy-category">${this.name}</h3> 
-        //                 <h3 class="card-style">-</h3>
-        //             </div>
-        //                 <p class="therapy-content">${this.question}</p>
-        //         </div>`
-        //         }
-        //         ))
-        //         this.cardsBox.innerHTML = cards.join('')    
-            };  
-            
+  };  
+
 
             shuffleCards(cards) {
                 for (let i = cards.length-1; i > 0; i--) {
@@ -103,6 +93,12 @@ class Topics {
                   }
             }
 
+
+     selectViewTopics(e) {
+        console.log(this)
+        e.preventDefault(e);
+        this.renderTopics();
+    }
 
     // renderQuestionCards(e){
     //    const topicId = e.target.dataset.id 

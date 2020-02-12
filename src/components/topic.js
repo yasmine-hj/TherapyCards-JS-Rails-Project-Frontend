@@ -8,9 +8,9 @@ class Topic {
 
     renderTopicName() {
         return `
-           <button type="button" id="topic-button">
+           <button type="button" class="topics-button" id="topic-button">
                 <div class="topic-cards" data-id=${this.id}> 
-                    <h3 class="therapy-category">${this.name}</h3>
+                    <h3 class="therapy-topic-category">${this.name}</h3>
                 </div>
             </button>
                `
