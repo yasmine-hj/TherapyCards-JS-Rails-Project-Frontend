@@ -20,6 +20,16 @@ class Topics {
         })
     }
 
+    fetchAndLoadTopic(){
+        this.adapter.getTopics()
+        .then(topic => {
+            topic.forEach(card => this.topics.push(new Topic(topic)))
+        })
+        .then( () => {
+            this.renderTopics()
+        })
+    }
+
     renderTopics(){
         this.topicsBox = document.querySelector(".card-container");
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
@@ -50,7 +60,6 @@ class Topics {
         if(e.target && e.target.className == "topic-cards") {
             console.log("List item ", topicID, " was clicked!");
 
-            debugger
             this.topicsBox.innerHTML = `
             
         <div class="card-container">

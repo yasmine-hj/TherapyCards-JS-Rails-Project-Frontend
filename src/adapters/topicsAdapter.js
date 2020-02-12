@@ -9,7 +9,7 @@ class TopicsAdapter {
     }
 
     getTopic() {
-        return fetch(this.baseURL/${id})
+        return fetch(`${this.baseURL}/${id}`)
         .then(res => res.json())
     }
 
