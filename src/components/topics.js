@@ -9,7 +9,7 @@ class Topics {
         this.initListeners()
     }
 
-    //Fetch topics
+    //Fetch and render Topics cards
     fetchAndLoadTopics(){
         this.adapter.getTopics()
         .then(topics => {
@@ -42,9 +42,7 @@ class Topics {
         this.viewAllTopics.addEventListener('click', this.selectViewTopics.bind(this))
     }
 
-
-
-    //Question Card
+    //Question and answer Cards
     selectCard(e){
         console.log(e)
         if (e) e.preventDefault()
@@ -99,46 +97,5 @@ class Topics {
         e.preventDefault(e);
         this.renderTopics();
     }
-
-    // renderQuestionCards(e){
-    //    const topicId = e.target.dataset.id 
-    //    this.cardFormBox.innerHTML = this.renderCardForm(topicId)
-    //    const cards = this.topics.map(topic =>  topic.cards.map(card => {
-    //     if (topicId == card.topic_id)
-    //    return 
-    //     `<div class="therapyCard">
-    //         <div class="card-title-container">
-    //         <div class="therapy-topic-name"></div>
-    //             <h3 class="therapy-category">${this.name}</h3> 
-    //             <h3 class="card-style">-</h3>
-    //         </div>
-    //             <p class="therapy-content">${this.question}</p>
-    //     </div>`
-    //     }
-    //     ))
-    //     this.cardsBox.innerHTML = cards.join('')
-    //     const card = document.querySelector( '.bottom' )
-    //     card.addEventListener('click', this.handleDelete.bind(this))
-    // }
-
-
-    //Answer Card
-
-    // renderAnswerCard(topicId){
-    //     return 
-    //     `<div class="answer-container">
-    //         <div class="answerCard">
-    //             <div class="answer-title-container">
-    //                 <h3 class="answer-title">Write your answer below</h3>
-    //                 <h3 class="answer-style">-</h3>
-    //             </div>
-    //             <form data-topicId="${topicId}" id="card-form">
-    //                 <h2>Your thoughts:</h2>
-    //                 <input type="text" name="user-response" id="user-response"><br>
-    //                 <input type="submit" value="submit response">
-    //             </form>  
-    //         </div>
-    //     </div>`
-    //     }
 
 }
