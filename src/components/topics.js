@@ -49,6 +49,8 @@ class Topics {
         let topicID = e.target.dataset.id
         if(e.target && e.target.className == "topic-cards") {
             console.log("List item ", topicID, " was clicked!");
+
+            debugger
             this.topicsBox.innerHTML = `
             
         <div class="card-container">

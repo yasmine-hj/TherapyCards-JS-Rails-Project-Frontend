@@ -8,7 +8,10 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
-    // Cards
+    getTopic() {
+        return fetch(this.baseURL/${id})
+        .then(res => res.json())
+    }
 
     createCard(question, id) {
         const card = {
