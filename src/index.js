@@ -1,4 +1,5 @@
-const app = new App()
-
-console.log("app loaded")
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("app loaded")
+    new App()
+})
 

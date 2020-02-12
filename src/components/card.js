@@ -6,7 +6,12 @@ class Card {
     }
 
     questionCardHTML(){
-        return `<h2 id ="question"> ${this.question}</h2>`
+        return `<button type="button" id="topic-button">
+                     <div class="topic-card" data-id=${this.id}> 
+                           <h3 class="therapy-content">${this.question}</h3>
+                      </div>
+                 </button>
+                 `
     }
 
     responseCardHTML(){

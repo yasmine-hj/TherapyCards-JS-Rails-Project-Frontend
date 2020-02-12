@@ -8,17 +8,16 @@ class Topic {
 
     renderTopicName() {
         return `
+           <button type="button" id="topic-button">
                 <div class="topic-cards" data-id=${this.id}> 
-                    <button type="button" id="topic-button">
-                        <h3 class="therapy-category">${this.name}</h3>
-                    </button>
+                    <h3 class="therapy-category">${this.name}</h3>
                 </div>
-
+            </button>
                `
     }
 
     renderTopic(){
-        returns `
+        returns `        
             ${this.renderTopicName()}
         `
     }

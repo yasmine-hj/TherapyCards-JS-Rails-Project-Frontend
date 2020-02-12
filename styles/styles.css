@@ -83,6 +83,35 @@
     padding-left:15px; 
     padding-right:15px; 
   }
+
+  .question-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5% 5% 5% 5%;
+    margin-left: 15%;
+    border: 1px solid black;
+    border-radius: 35px;
+    height: 225px;
+    width: 400px;
+    background-color: white;
+    padding-left:15px; 
+    padding-right:15px; 
+  }
+  .answer-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5% 5% 5% 5%;
+    margin-left: 15%;
+    border: 1px solid black;
+    border-radius: 35px;
+    height: 225px;
+    width: 400px;
+    background-color: white;
+    padding-left:15px; 
+    padding-right:15px; 
+  }
   
   /* .card-title-container {
     margin: 8% 8%
@@ -115,6 +144,7 @@
   }
   
   .therapy-content {
+    font-family: 'Comfortaa', cursive;
     margin: 0% 8% 0% 8%;
     display: flex;
     align-items: flex-start;
