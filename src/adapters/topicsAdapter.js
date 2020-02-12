@@ -8,8 +8,8 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
-    getTopic() {
-        return fetch(`${this.baseURL}/${id}`)
+    getTopic(topicId) {
+        return fetch(`${this.baseURL}/${topicId}`)
         .then(res => res.json())
     }
 
@@ -26,4 +26,17 @@ class TopicsAdapter {
         })
         .then(res => res.json())
     }
+
+    createResponse(response, id) {
+        return fetch(`/http://localhost:3000/responses`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({response})
+        })
+        .then(res => res.json())
+    }
+
+    
 }

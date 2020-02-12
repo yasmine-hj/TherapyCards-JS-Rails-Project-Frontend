@@ -2,6 +2,7 @@ class Topics {
     
     constructor(){
         this.topics = []
+        this.cards = []
         this.adapter = new TopicsAdapter()
         this.fetchAndLoadTopics()
         this.renderTopics()
@@ -20,16 +21,45 @@ class Topics {
         })
     }
 
-    fetchAndLoadTopic(){
-        this.adapter.getTopics()
+    fetchAndLoadTopic(topicID){
+        this.cards = []
+        this.adapter.getTopic(topicID)
         .then(topic => {
-            topic.forEach(card => this.topics.push(new Topic(topic)))
-        })
-        .then( () => {
-            this.renderTopics()
+            topic.cards.forEach(card => this.cards.push(new Card(card)))
+            const index = Math.floor(Math.random()*topic.cards.length)
+            const card = topic.cards[index]
+             this.topicsBox.innerHTML = `
+                <div class="card-container">
+                    <div class="question-cards">
+                        <div class="card-title-container">
+                        <br>
+                         <h3 class="therapy-category">${topic.name}</h3>
+                         <h3 class="card-style">-</h3>
+                        </div>
+                    <p class="therapy-content">${card.question}</p>
+                    </div>
+                    <div class="answer-cards">
+                    <div class="answer-title-container">
+                        <h3 class="answer-title">Write your answer below</h3>
+                        <h3 class="answer-style">-</h3>
+                    <form id="answer-form" autocomplete="off" >
+                        </div>
+                        <div class="input-field">
+                            <textarea type="answer" class="textarea" name="response" id="response" placeholder="Your thoughts" required autofocus></textarea>
+                        </div>
+                        <button type="submit" id="submit" class="submit-button" value="submit">Submit</button>
+                    </form>
+                    </div>
+                </div>
+                </div>`
+                document.querySelector("#answer-form").addEventListener('submit', this.onSubmit.bind(this))
+1
         })
     }
 
+    onSubmit(){
+        console.log(works)
+    }
     renderTopics(){
         this.topicsBox = document.querySelector(".card-container");
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
@@ -54,51 +84,24 @@ class Topics {
 
     //Question and answer Cards
     selectCard(e){
-        console.log(e)
         if (e) e.preventDefault()
-        let topicID = e.target.dataset.id
+        const topicID = e.target.dataset.id
         if(e.target && e.target.className == "topic-cards") {
             console.log("List item ", topicID, " was clicked!");
-
-            this.topicsBox.innerHTML = `
-            
-        <div class="card-container">
-            <div class="question-cards">
-              <div class="card-title-container">
-                <br>
-                <h3 class="therapy-category">Relationships</h3>
-                <h3 class="card-style">-</h3>
-              </div>
-              <p class="therapy-content">
-                How might you evolve in the way you express disappointment with a
-                partner?
-              </p>
-            </div>
-            <div class="answer-cards">
-              <div class="answer-title-container">
-                <h3 class="answer-title">Write your answer below</h3>
-                <h3 class="answer-style">-</h3>
-                <form id="quiz-form" autocomplete="off">
-                <div id="quiz-warning">
-                </div>
-                <div class="input-field">
-                    <textarea type="answer" class="textarea" name="response" id="response" placeholder="Your thoughts" required autofocus></textarea>
-                </div>
-                <button id="submit" class="submit-button">submit</button>
-            </form>
-            </div>
-          </div>
-          </div>`
+            console.log(this.fetchAndLoadTopic)
+            // this.renderCards(topicID)
+            this.topicsBox.innerHTML = `<div>loading</div>`
+            this.fetchAndLoadTopic(topicID)
         }
   };  
-
-
 
      selectViewTopics(e) {
         console.log(this)
         e.preventDefault(e);
         this.renderTopics();
     }
+
+
 
 
 }
