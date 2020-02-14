@@ -84,17 +84,17 @@ class Topics {
                             <div class="answer-title-container">
                             <h3 class="answer-title">Write your answer below</h3>
                             <h3 class="answer-style">-</h3>
-                            form id="answer-form" autocomplete="off" >
+                            <form id="answer-form" autocomplete="off" >
                                 <div class="input-field">
-                              <textarea type="answer" class="textarea" name="response" id="new-response" placeholder="Your thoughts" required autofocus></textarea>
+                              <textarea type="answer" class="textarea" name="response" id="new-response-body" placeholder="Your thoughts" required autofocus></textarea>
                                 </div>
                             <button type="submit" form="answer-form" class="submit-button" value="submit">submit</button>
                             </form>
                        </div>
                      </div>
                 </div>`
-            document.getElementById("answer-form").addEventListener('submit', this.submitResponse)
-            document.querySelector(".skip-button").addEventListener('click', this.skipQuestion.bind(this))
+            document.getElementById("answer-form").addEventListener('submit', this.createResponse)
+            document.querySelector(".skip-button").addEventListener('click',this.skipQuestion.bind(this))
         })
     }
 
@@ -106,20 +106,24 @@ class Topics {
         let card = cards[index]
     }
 
-    submitResponse(e){
+    createResponse(e){
+        this.responses = []
         e.preventDefault()
-        // this.response = []
-        // const response = this.renderNewResponse.value
-        // this.adapter.createResponse(response)
-        // .then(response => {
-        //     this.responses.push(new Response(response))
-        //     this.renderNewResponse(response)
-        // })
-        console.log("submited")
+        this.adapter = new TopicsAdapter()
+        this.newResponseBody = document.getElementById("new-response-body")
+        const value = this.newResponseBody.value
+        // debugger
+        this.adapter.createResponse(value).then(response => {
+        this.responses.push(new Response(response))
+        this.newResponseBody.value = ''
+        })
+        console.log(this)
     }
 
     //Responses
     fetchAndLoadResponses(){
+        this.adapter = new TopicsAdapter()
+        this.responses = []
         this.adapter.getResponses()
         .then(responses => {
             responses.forEach(response => this.responses.push(new Response(response)))
@@ -133,36 +137,20 @@ class Topics {
         e.preventDefault(e)
         console.log("viewing all responses!")
         this.therapyCardsBox.innerHTML = ``
-        this.renderAllResponses();
+        this.fetchAndLoadResponses();
     }
 
     renderAllResponses(){
         this.topicsBox.innerHTML = this.responses.map(response => response.renderResponse()).join('')
     }
 
-    renderNewResponse(){
-        return this.topicsBox.innerHTML = `
-        <div class="card-container">
-            <div class="question-cards">
-                <div class="card-title-container">
-                <br>
-                 <h3 class="therapy-category">${topic.name}</h3>
-                 <h3 class="card-style">-</h3>
-                </div>
-            <p class="therapy-content">${card.question}</p>
-            </div>
-            <div class="answer-cards">
-            <div class="answer-title-container">
-                <h3 class="answer-title">Write your answer below</h3>
-                <h3 class="answer-style">-</h3>
-            <form id="answer-form" autocomplete="off" >
-                <div class="input-field">
-                    <textarea type="answer" class="textarea" name="response" id="response">${this.response}</textarea>
-                </div>
-                    <button type="submit" form="answer-form" class="submit-button" value="submit">submit</button>
-            </form>
-            </div>
-        </div>
-        </div>`
+    updateResponse(e){                
+        e.preventDefault(e)
+
+    }
+
+    deleteResponse(e){
+        e.preventDefault(e)
+
     }
 }

@@ -18,19 +18,11 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
-    // createCard(card, id){
-    //     return fetch(`${this.baseURL}/${id}/cards`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({card})
-    //     })
-    //     .then(res => res.json())
-    // }
-
-    createResponse(response, id){
-        return fetch(`/http://localhost:3000/responses`, {
+    createResponse(value){
+        const response = {
+            response: value,
+          }
+        return fetch(`http://localhost:3000/responses`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -38,7 +30,5 @@ class TopicsAdapter {
             body: JSON.stringify({response})
         })
         .then(res => res.json())
-    }
-
-    
+    }   
 }

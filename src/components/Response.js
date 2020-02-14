@@ -2,28 +2,22 @@ class Response {
     constructor(response){
         this.id = response.id
         this.response = response.response
-        this.cardID = response.card_id
+        this.cardID = response.card.id
+        this.cardQuestion = response.card.question
     }
-
+    
 renderResponse(){
     return `
-       <button type="button" class="topics-button" id="topic-button">
-            <div class="topic-cards" data-id=${response.id}> 
-                <h3 class="therapy-topic-category">${response.card.question}</h3>
-            </div>
-        </button>
-
+    <button type="button" class="responses-button" id="responses-button">
         </div>
             <div class="answer-cards">
             <div class="answer-title-container">
-                <h3 class="answer-title">Write your answer below</h3>
-                <h3 class="answer-style">-</h3>
-            <form id="answer-form" autocomplete="off" >
-                <div class="input-field">
-                    <textarea type="answer" class="textarea" name="response" id="response">${this.response}</textarea>
-                </div>
-            </form>
+            <br>
+                <h3 class="answer-style">${this.cardQuestion}</h3>
+                <br>
+            <p class="therapy-content">${this.response}</p>
         </div>
+        </button>
            `
     }
 }
