@@ -3,7 +3,6 @@ class Topic {
         this.id = topic.id
         this.name = topic.name
         this.cards = topic.cards ? topic.cards : []
- 
     }
 
     renderTopicName() {

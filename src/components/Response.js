@@ -4,7 +4,6 @@ class Response {
         this.response = response.response
         this.cardID = response.card_id
     }
-}
 
 renderResponse(){
     return `
@@ -26,4 +25,5 @@ renderResponse(){
             </form>
         </div>
            `
+    }
 }
