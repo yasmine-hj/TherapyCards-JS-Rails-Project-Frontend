@@ -13,7 +13,7 @@
   }
   
   .container {
-    margin: 5% 5% 5% 5%;
+    margin: 2% 5% 5% 5%;
   }
   
   .header {
@@ -42,12 +42,16 @@
   
   nav {
     display: flex;
+    align-items: baseline;
+
     flex-direction: row-reverse;
   }
   
   nav a {
     text-decoration: none;
     font-family: 'Comfortaa', cursive;
+    align-items: baseline;
+
     font-weight: 300;
     color: black;
     font-size: 125%;
@@ -92,6 +96,19 @@
     font-family: 'Comfortaa', cursive;
     margin: 5% 5% 5% 5%;
     margin-left: 45%;
+    border: 1px solid black;
+    border-radius: 35px;
+    height: 225px;
+    width: 400px;
+    background-color: white;
+  }
+
+  .response-cards{
+    font-family: 'Comfortaa', cursive;
+    margin: 3% 3% 3% 3%;
+    margin-left: 2%;
+    margin-right: auto;
+    display: inline-block;
     border: 1px solid black;
     border-radius: 35px;
     height: 225px;
@@ -184,6 +201,20 @@ button.skip-button{
   outline: none;
   padding-right:15px;
 }
+button.delete-response-button{
+  font-family: 'Comfortaa', cursive;
+  margin:8% 0% 0% 8%;
+  color: grey;
+  font-size: 80%;
+  display: block;
+  max-width: 300px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding-right:15px;
+  margin-top: 1%;
+
+}
 
   button:focus {
     border: none;
@@ -215,6 +246,7 @@ button.skip-button{
     font-size: 100%;
     margin: 5% 5% 5% 5%;
     margin-left: 45%;
+    margin-top: 10%;
     border: 1px solid black;
     border-radius: 35px;
     height: 225px;
@@ -231,7 +263,7 @@ button.skip-button{
   
   .answer-style {
     color: black;
-    font-size: 150%;
+    font-size: auto;
     font-weight: bolder;
     margin: 0% 0% 0% 8%;
   }

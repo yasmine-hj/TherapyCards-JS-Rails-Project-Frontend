@@ -18,10 +18,8 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
-    createResponse(value){
-        const response = {
-            response: value,
-          }
+    createResponse(response){
+        
         return fetch(`http://localhost:3000/responses`, {
             method: 'POST',
             headers: {
@@ -31,4 +29,14 @@ class TopicsAdapter {
         })
         .then(res => res.json())
     }   
+
+    deleteResponse(id) {
+        return fetch(`http://localhost:3000/responses/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        
+    }
 }

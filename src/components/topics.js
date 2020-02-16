@@ -17,7 +17,7 @@ class Topics {
         this.selectTopicHeading = document.querySelector('.select-a-topic');
         this.responseCardFormBox = document.querySelector('.new-response-form');
         this.viewAllTopics = document.querySelector(".see-topics-button");
-        this.viewAllResponses = document.querySelector(".see-responses-button");
+        this.viewAllResponses = document.querySelector(".see-responses-button")
     }
 
     // Event listeners
@@ -72,52 +72,42 @@ class Topics {
                 <div class="question-cards" id="${topicID}">
                 <div class="card-title-container">
                     <br>
-                        <h3 class="therapy-category" id="${topicID}">${topic.name}</h3>
-                        <h3 class="card-style">-</h3>
-                    </div>
-                        <p class="therapy-content">${card.question}</p>
-                        <button class="prev-button" value="prev"> <previous question</button>
-                        <button class="skip-button" value="skip">skip question > </button>
-                    </div>
-                    <div> 
-                        <div class="answer-cards">
-                            <div class="answer-title-container">
-                            <h3 class="answer-title">Write your answer below</h3>
-                            <h3 class="answer-style">-</h3>
-                            <form id="answer-form" autocomplete="off" >
-                                <div class="input-field">
-                              <textarea type="answer" class="textarea" name="response" id="new-response-body" placeholder="Your thoughts" required autofocus></textarea>
-                                </div>
-                            <button type="submit" form="answer-form" class="submit-button" value="submit">submit</button>
-                            </form>
+                    <h3 class="therapy-category" id="${topicID}">${topic.name}</h3>                        
+                    <h3 class="card-style">-</h3>
                        </div>
+                      <p class="therapy-content">${card.question}</p>
+                        <button class="prev-button" value="prev"> <previous question</button>
+                      <button class="skip-button" value="skip">next question > </button>
                      </div>
+                    <div class="answer-cards">
+                    <div class="answer-title-container">
+                      <h3 class="answer-title">Write your answer below</h3>
+                        <h3 class="answer-style">-</h3>
+                        <form id="answer-form" data-card-id="${card.id}" autocomplete="off" >
+                        <div class="input-field">
+                        <textarea type="answer" class="textarea" name="response" id="new-response-body" placeholder="Your thoughts" required autofocus></textarea>
+                      </div>
+                        <button type="submit" form="answer-form" class="submit-button"  value="submit">submit</button>
+                        </form>
+                    </div>
+                 </div>
                 </div>`
             document.getElementById("answer-form").addEventListener('submit', this.createResponse)
-            document.querySelector(".skip-button").addEventListener('click',this.skipQuestion.bind(this))
+            document.querySelector(".skip-button").addEventListener('click', () => this.fetchAndLoadTopic(topicID))
         })
-    }
-
-    skipQuestion(e){
-        const cards = this.cards
-        e.preventDefault()
-        console.log(this.cards)
-        let index = Math.floor(Math.random()*this.cards.length)
-        let card = cards[index]
     }
 
     createResponse(e){
-        this.responses = []
         e.preventDefault()
-        this.adapter = new TopicsAdapter()
         this.newResponseBody = document.getElementById("new-response-body")
-        const value = this.newResponseBody.value
-        // debugger
-        this.adapter.createResponse(value).then(response => {
-        this.responses.push(new Response(response))
+        const formData = {
+            response : this.newResponseBody.value,
+            card_id : e.target.getAttribute("data-card-id")
+        }
+        this.adapter = new TopicsAdapter()
+        this.adapter.createResponse(formData).then(response => {
         this.newResponseBody.value = ''
         })
-        console.log(this)
     }
 
     //Responses
@@ -142,15 +132,20 @@ class Topics {
 
     renderAllResponses(){
         this.topicsBox.innerHTML = this.responses.map(response => response.renderResponse()).join('')
+        this.topicsBox.addEventListener('click', this.handleDelete.bind(this))
     }
-
-    updateResponse(e){                
+  
+    handleDelete(e){
         e.preventDefault(e)
-
+        if (e.target.type = "button"){
+            this.deleteResponse(e)
+        }
     }
 
     deleteResponse(e){
-        e.preventDefault(e)
-
+    e.preventDefault()
+    this.response_id = e.target.getAttribute("data-card-id")
+    this.adapter.deleteResponse(this.response_id)
+        console.log(this)
     }
 }
