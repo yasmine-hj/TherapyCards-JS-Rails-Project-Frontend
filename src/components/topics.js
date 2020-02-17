@@ -7,6 +7,7 @@ class Topics {
         this.fetchAndLoadTopics()
         this.domElements()
         this.initListeners()
+        this.topicInstructions()
     }
 
     // Dom elements
@@ -26,6 +27,13 @@ class Topics {
         this.viewAllResponses.addEventListener('click', this.selectViewResponses.bind(this))
     }
 
+    // Select topic instructions
+    topicInstructions(){
+        this.selectTopicHeading.innerHTML = `
+        <h2>Select a topic to begin!</h2>
+        `
+    }
+
     //Fetch and render all Topics cards
     fetchAndLoadTopics(){
         this.adapter.getTopics()
@@ -43,7 +51,8 @@ class Topics {
     }
 
     selectCard(e){
-        if (e) e.preventDefault()
+        e.preventDefault()
+        this.selectTopicHeading.innerHTML = ``
         const topicID = e.target.dataset.id
         if(e.target && e.target.className == "topic-cards") {
             console.log("List item ", topicID, " was clicked!");
@@ -55,6 +64,9 @@ class Topics {
 
     selectViewTopics(e) {
         console.log("viewing all topics")
+        this.selectTopicHeading.innerHTML = `
+        <h2>Select a topic!</h2>
+        `
         this.therapyCardsBox.innerHTML = ``
         e.preventDefault(e);
         this.renderTopics();
@@ -125,6 +137,7 @@ class Topics {
 
     selectViewResponses(e){
         e.preventDefault(e)
+        this.selectTopicHeading.innerHTML = ``
         console.log("viewing all responses!")
         this.therapyCardsBox.innerHTML = ``
         this.fetchAndLoadResponses();
