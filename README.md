@@ -1,4 +1,4 @@
-# TherapyCards-JS-Rails-Project-Frontend
+# TherapyCards Frontend
 
 TherapyCards is a card game where you pick from a collection of topics and you can answer and log therapy questions related to this topic!
 
