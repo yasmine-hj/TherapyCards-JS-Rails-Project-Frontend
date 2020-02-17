@@ -10,7 +10,7 @@ This is the frontend code, you can find the backend code here: https://github.co
 * ```Bundle install```
 * Execute migrations on backend ```rails db:migrate```
 * Execute seeds on backend ```rails db:seed```
-* Open index.html on front end
+* Open index.html on frontend
 * Enjoy the game!
 
 ## License
