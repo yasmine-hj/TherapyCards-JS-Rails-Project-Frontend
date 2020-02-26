@@ -19,7 +19,6 @@ class TopicsAdapter {
     }
 
     createResponse(response){
-        
         return fetch(`http://localhost:3000/responses`, {
             method: 'POST',
             headers: {

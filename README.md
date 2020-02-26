@@ -6,7 +6,6 @@ This is the frontend code, you can find the backend code here: https://github.co
 
 ## Getting Started
 
-* Download both the frontend and backend code.
 * ```Bundle install```
 * Execute migrations on backend ```rails db:migrate```
 * Execute seeds on backend ```rails db:seed```

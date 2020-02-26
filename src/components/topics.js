@@ -31,8 +31,21 @@ class Topics {
     topicInstructions(){
         this.selectTopicHeading.innerHTML = `
         <h2>Select a topic to begin!</h2>
+        <button id="sort">Sort</button>
         `
+        document.getElementById('sort').addEventListener('click', this.sortAlphabetically.bind(this))
     }
+
+    sortAlphabetically(){
+        this.topics.sort(function(a,b){
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        this.renderTopics(this.topics)
+    }
+
+
 
     //Fetch and render all Topics cards
     fetchAndLoadTopics(){
@@ -43,6 +56,7 @@ class Topics {
         .then( () => {
             this.renderTopics()
         })
+        .catch(err => console.log(err))
     }
 
     renderTopics(){
@@ -159,6 +173,5 @@ class Topics {
     e.preventDefault()
     this.response_id = e.target.getAttribute("data-card-id")
     this.adapter.deleteResponse(this.response_id)
-        console.log(this)
     }
 }
