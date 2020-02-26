@@ -80,7 +80,9 @@ class Topics {
         console.log("viewing all topics")
         this.selectTopicHeading.innerHTML = `
         <h2>Select a topic!</h2>
+        <button id="sort">Sort</button>
         `
+        document.getElementById('sort').addEventListener('click', this.sortAlphabetically.bind(this))
         this.therapyCardsBox.innerHTML = ``
         e.preventDefault(e);
         this.renderTopics();
