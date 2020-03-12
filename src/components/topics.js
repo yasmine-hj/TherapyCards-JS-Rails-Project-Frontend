@@ -45,8 +45,6 @@ class Topics {
         this.renderTopics(this.topics)
     }
 
-
-
     //Fetch and render all Topics cards
     fetchAndLoadTopics(){
         this.adapter.getTopics()
