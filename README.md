@@ -2,7 +2,7 @@
 
 TherapyCards is a card game where you pick from a collection of topics and you can answer and log therapy questions related to this topic!
 
-This is the frontend code, you can find the backend code here: https://github.com/yasmine-hj/TherapyCards-JS-Rails-Project-Backendpwd
+This is the frontend code, you can find the backend code here: https://github.com/yasmine-hj/TherapyCards-backend
 
 ## Getting Started
 
